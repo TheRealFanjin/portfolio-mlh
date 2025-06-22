@@ -119,3 +119,22 @@ body {
     height: 200px;
     margin-bottom: 20px;
 }
+
+.experience {
+    background-color: #1d539f;
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+}
+
+.experience h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.experience-content {
+    display: flex;
+    padding-left: 150px;
+    padding-right: 150px;
+    text-align: left;
+}
