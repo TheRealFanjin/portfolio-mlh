@@ -9,6 +9,7 @@ body {
     overflow-x: hidden;
     font-family: "Roboto", serif;
     margin: 0px;
+
 }
 
 .nav-bar {
@@ -53,7 +54,6 @@ body {
     background-color: #1d539f !important;
     text-align: center;
     height: 320px;
-    margin-bottom: 50px;
 }
 
 .profile h1 {
@@ -94,4 +94,28 @@ body {
     color: white;
     font-size: 50px;
     font-weight: 700;
+}
+
+.about {
+    background-color: #1d539f;
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+}
+
+.about-content {
+    display: flex;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.about h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.about-content img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
 }
