@@ -138,3 +138,35 @@ body {
     padding-right: 150px;
     text-align: left;
 }
+
+.hobbies {
+    background-color: #1d539f;
+
+    color: white;
+    padding-top: 50px;
+}
+
+.hobbies-content {
+    display: flex;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: left;
+}
+
+.hobbies h1 {
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hobbies h2{
+    text-align: left;
+    padding-left: 100px;
+}
+
+#hobbies-p {
+    padding-left: 100px;
+}
+.hobbies-content img {
+    margin-bottom: 20px;
+}
