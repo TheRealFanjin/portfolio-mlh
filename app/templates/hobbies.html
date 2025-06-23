@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,7 +17,6 @@
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
     <title>{{ title }}</title>
 </head>
-
 <body>
     <header class="nav-bar">
         <div class="nav-content">
@@ -31,7 +29,7 @@
         <div class="nav-content">
             <div class="nav-pages">
                 {% for page in pages %}
-                    <a href="{{ url_for(page[1]) }}" class="nav-link">
+                    <a href="{{ page[1] }}" class="nav-link">
                         {{ page[0] }}
                     </a>
                 {% endfor %}
@@ -39,26 +37,17 @@
         </div>
     </header>
 
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/profile.jpeg">
-        </div>
-        <h1>{{ title }}</h1>
-    </div>
-
-    <div class="about">
-        <h1>About Me</h1>
-        <div class="about-content">
-            <p>Hello! My name is Fanjin, and I'm an aspiring software developer! I'm a sophomore at Texas A&M University studying Computer Science. Some of my hobbies are planespotting (I'm an avgeek), gaming, and shopping for my next PC upgrade. I'm currently searching for internship opportunities for the summer 2026 season. Don't be shy to message me, my chats are always open!</p>
-        </div>
-    </div>
-
-    <div class="about">
-        <h1>Education</h1>
-        <div class="about-content">
-            <img src="./static/img/LoneStar.png">
-            <p>I'm currently an incoming sophomore at Texas A&M University studying Computer Science. Some relevant courses I have taken is Data Structures and Algorithms, C++, Python, and Discrete Math.</p>
-            <img src="./static/img/am.jpg" width="300" height="168">
+    <div class="hobbies">
+        <h1>Hobbies</h1>
+        {% for hobby in hobbies %}
+            <h2>{{ hobby.name }}</h2>
+            <p id="hobbies-p">{{ hobby.description }}</p>
+            <div class="hobbies-content">
+                {% for image in hobby.images %}
+                    <img src="./static/img/{{ image.name }}" width="{{ image.width }}" height="{{ image.height }}">
+                {% endfor %}
+            </div>
+        {% endfor %}
         </div>
     </div>
 </body>
