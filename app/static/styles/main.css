@@ -3,7 +3,7 @@ p, h1, h2, h3, h4, h5, h6, button {
 }
 
 body {
-    background-color: #f5f5f9;
+    background-color: #1c539f;
     background-size: cover;
     width: auto; 
     overflow-x: hidden;
@@ -32,6 +32,22 @@ body {
     margin: auto;
 }
 
+.nav-content .nav-pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #f8ba2b;
+}
+
+.nav-content .nav-pages a {
+    color: white;
+    text-decoration: none;
+    padding: 0 20px;
+    font-size: 18px;
+}
 .nav-logo {
     display: flex;
     align-items: center;
@@ -166,6 +182,7 @@ body {
 
 #hobbies-p {
     padding-left: 100px;
+    padding-right: 100px;
 }
 .hobbies-content img {
     margin-bottom: 20px;
