@@ -17,7 +17,6 @@ body {
     display: inline-block;
     background-color: #1C539F;
     font-family: "Roboto", serif;
-    font-weight: 700 !important;
     padding-top: 10px;
 }
 
@@ -43,7 +42,7 @@ body {
 }
 
 .nav-content .nav-pages a {
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 0 20px;
     font-size: 18px;
