@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>Submit a timeline post</h1>
+    <form id="post-form" action="/api/timeline_post" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+        <label for="content">Content:</label>
+        <input type="text" name="content" id="content">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
