@@ -8,12 +8,22 @@ from playhouse.shortcuts import model_to_dict
 load_dotenv()
 app = Flask(__name__)
 
-mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
-	user=os.getenv("MYSQL_USER"),
-	password=os.getenv("MYSQL_PASSWORD"),
-	host=os.getenv("MYSQL_HOST"),
-	port=3306
-)
+if os.getenv("FLASK_ENV") == 'testing':
+	print('Running in testing mode')
+	mydb = SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
+
+
+else:
+	mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+		user=os.getenv("MYSQL_USER"),
+		password=os.getenv("MYSQL_PASSWORD"),
+		host=os.getenv("MYSQL_HOST"),
+		port=3306,
+		)
+
+
+
+
 
 class TimelinePost(Model):
 	name = CharField()
@@ -23,8 +33,13 @@ class TimelinePost(Model):
 
 	class Meta:
 		database = mydb
-mydb.connect()
-mydb.create_tables([TimelinePost])
+
+
+# Only connect and create tables in non-testing environments
+if os.getenv("FLASK_ENV") != "testing" and not mydb.is_closed():
+    mydb.connect()
+    mydb.create_tables([TimelinePost])
+
 pages = [('Hobbies', 'hobbies'), ('Experience', 'experience')]
 @app.route('/')
 def index():
@@ -32,9 +47,16 @@ def index():
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
-	name = request.form['name']
+	try:
+		name = request.form['name']
+	except KeyError:
+		return "Invalid name", 400
 	email = request.form['email']
+	if '@' not in email or '.' not in email.split('@')[-1]:
+		return "Invalid email", 400
 	content = request.form['content']
+	if not content:
+		return "Invalid content", 400
 	timeline_post = TimelinePost.create(name=name, email=email, content=content)
 	return model_to_dict(timeline_post)
 
