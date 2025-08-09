@@ -1,7 +1,10 @@
+certifi==2025.7.14
 cffi==1.15.0
+charset-normalizer==3.4.2
 click==8.0.1
 cryptography==37.0.2
 Flask==2.0.1
+idna==3.10
 itsdangerous==2.0.1
 Jinja2==3.0.1
 MarkupSafe==2.0.1
@@ -9,4 +12,6 @@ peewee==3.14.10
 pycparser==2.21
 PyMySQL==1.0.2
 python-dotenv==0.17.1
+requests==2.32.4
+urllib3==2.5.0
 Werkzeug==2.0.1
