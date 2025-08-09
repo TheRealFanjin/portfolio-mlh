@@ -5,7 +5,7 @@ services:
     build: .
     restart: always
     env_file:
-      - .envgit
+      - .env
     ports:
       - "5001:5001"
     depends_on:
