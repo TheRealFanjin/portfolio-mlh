@@ -22,9 +22,6 @@ else:
         )
 
 
-
-
-
 class TimelinePost(Model):
     name = CharField()
     email = CharField()
@@ -36,8 +33,8 @@ class TimelinePost(Model):
 
 
 # Only connect and create tables in non-testing environments
-if os.getenv("FLASK_ENV") != "testing" and not mydb.is_closed():
-    mydb.connect()
+if os.getenv("FLASK_ENV") != "testing":
+    mydb.connect(reuse_if_open=True)
     mydb.create_tables([TimelinePost])
 
 pages = [('Hobbies', 'hobbies'), ('Experience', 'experience')]
@@ -71,7 +68,8 @@ def get_time_line_post():
 
 @app.route('/timeline')
 def timeline():
-    return render_template('timeline.html', title="Timeline")
+    posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+    return render_template('timeline.html', title="Timeline", posts=posts)
 @app.route('/hobbies')
 def hobbies():
     hobbies = [{
